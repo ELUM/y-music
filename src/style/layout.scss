@@ -1,0 +1,14 @@
+$TopBarHeight: 70px;
+$TopBarWidth: 100vw;
+$TopBarBackColor: blue;
+
+$FooterHeight: 100px;
+$FooterWidth: 100vw;
+$FooterBackColor: #F2F2F2;
+
+$MainHeight: calc(100vh - #{$TopBarHeight} - #{$FooterHeight} - 1px);
+$MainWidth: 1000px;
+
+$Banner: 300px;
+
+$MinWidth: $MainWidth;
