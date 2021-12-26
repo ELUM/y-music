@@ -25,3 +25,14 @@ export function banner(type: Number) {
         }
     })
 }
+
+export function Recommend(limit: Number) {
+    return request({
+        url: '/personalized',
+        method: MethodType.GET,
+        params: {
+            limit
+        }
+    })
+    
+}
