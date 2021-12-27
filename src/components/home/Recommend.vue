@@ -44,25 +44,27 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-
   .discover-content {
     width: $MainWidth;
+    min-width: $MainWidth;
     background-color: white;
     border-left: solid 1px #d3d3d3;
     border-right: solid 1px #d3d3d3;
+    padding-bottom: 20px;
     .discover-bar {
-      color: brown;
+      margin: 10px;
+      padding-left: 10px;
       font-size: 25px;
+      font-weight: bold;
     }
     ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
       display: inline-block;
-
+      text-align: center;
       li {
         margin: 5px 5px 5px 0;
-
         .rcmd {
           width: 255px;
           height: 255px;
@@ -73,6 +75,8 @@ onMounted(() => {
             border-radius: 10px;
           }
           p {
+            text-align: left;
+            padding-left: 15px;
             margin-top: 0;
             font-weight: bold;
             font-size: 15px;

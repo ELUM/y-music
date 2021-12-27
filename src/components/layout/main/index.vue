@@ -14,6 +14,5 @@ export default {
 @import "@/style/layout";
 .main {
   min-height: $MainHeight;
-  background-color: aquamarine;
 }
 </style>

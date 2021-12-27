@@ -1,9 +1,10 @@
 <template>
-  <div class="banner">
+  <div class="banner" >
     <div class="banner-img">
       <img :src="getBannerImgPath" alt="">
     </div>
   </div>
+
 </template>
 
 <script setup lang="ts">
@@ -30,16 +31,13 @@ let getBannerImgPath = computed(() => {
 
 .banner {
   height: $Banner;
-  background-color: lightgrey;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+  background-size: 2000px;
+  background-repeat: no-repeat;
+  background-position: center center;
   .banner-img {
+    text-align: center;
     background-color: white;
     height: $Banner;
-    width: $MainWidth;
-
     img {
       height: $Banner;
     }
