@@ -1,8 +1,6 @@
 <template>
   <Banner />
-  <div class="discover-module">
-    <Recommend />
-  </div>
+  <Recommend />
 </template>
 
 <script setup lang="ts">
@@ -11,15 +9,5 @@ import Recommend from '@/components/home/Recommend.vue'
 </script>
 
 <style lang="scss">
-@import "@/style/home";
-.discover-module {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  div {
-    min-width: $MinWidth;
-    width: $MainWidth;
-  }
 
-}
 </style>

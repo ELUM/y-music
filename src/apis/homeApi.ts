@@ -34,5 +34,11 @@ export function Recommend(limit: Number) {
             limit
         }
     })
-    
+}
+
+export function test() {
+    return request({
+        url: '/playlist/detail?id=7189324795',
+        method: MethodType.GET
+    })
 }

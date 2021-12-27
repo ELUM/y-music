@@ -10,6 +10,7 @@ body,html {
   margin: 0;
   padding: 0;
   min-width: $MinWidth;
+  overflow-x: hidden;
 }
 #app {
   height: 100vh;
