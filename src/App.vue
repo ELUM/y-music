@@ -9,10 +9,13 @@
 body,html {
   margin: 0;
   padding: 0;
-  min-width: $MinWidth;
-  overflow-x: hidden;
 }
 #app {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0;
 }
 </style>

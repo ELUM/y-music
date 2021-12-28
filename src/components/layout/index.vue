@@ -1,9 +1,11 @@
 <template>
   <TopBar/>
   <div class="main">
+    <div style="margin-top: 70px"></div>
     <Main/>
+    <Footer/>
+    <div style="margin-top: 60px"></div>
   </div>
-  <Footer/>
 </template>
 
 <script setup lang="ts">
@@ -13,7 +15,5 @@ import Footer from '@/components/layout/footer/index.vue'
 </script>
 
 <style lang="scss">
-.main {
-  margin: 0 auto;
-}
+
 </style>

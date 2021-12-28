@@ -36,9 +36,35 @@ export function Recommend(limit: Number) {
     })
 }
 
-export function test() {
+/**
+ * 热门歌手
+ * @param limit
+ */
+export function topArtists(limit:Number) {
     return request({
-        url: '/playlist/detail?id=7189324795',
-        method: MethodType.GET
+        url: '/top/artists',
+        method: MethodType.GET,
+        params: {
+            limit
+        }
+    })
+}
+
+/**
+ * 新歌速递
+ * 全部:0
+ * 华语:7
+ * 欧美:96
+ * 日本:8
+ * 韩国:16
+ * @param type
+ */
+export function newMusicSend(type: Number) {
+    return request({
+        url: '/top/song',
+        method: MethodType.GET,
+        params: {
+            type
+        }
     })
 }
