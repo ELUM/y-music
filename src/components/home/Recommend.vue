@@ -8,7 +8,7 @@
         <li>
           <div class="rcmd">
             <div class="icon-side">
-              <div class="icon">
+              <div class="icon" @click="goSongSheet(item.id)">
                 <svg t="1640665306444" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                      p-id="2028" width="32" height="32">
                   <path
@@ -16,11 +16,11 @@
                       fill="white" p-id="2029"></path>
                 </svg>
               </div>
-              <img style="cursor: pointer;" :src="item.picUrl" @click="goSongSheet(item.id)">
+              <img style="cursor: pointer;" :src="item.picUrl">
             </div>
             <div style="position: absolute;height: 50px">
               <p>
-                <a style="cursor: pointer" @click="goSongSheet(item.id)">{{ item.name }}</a><br>
+                <a style="cursor: pointer">{{ item.name }}</a><br>
                 <span>热门推荐</span>
               </p>
             </div>
@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import {Recommend} from "@/apis/homeApi";
-import {onMounted, reactive} from "vue";
+import {onMounted, reactive, ref} from "vue";
 import {musicRcmdList} from "@/apis/musicApi";
 import {useMusic} from "@/store";
 
@@ -46,10 +46,13 @@ onMounted(() => {
     recommends.data = res.data.result
   })
 })
-
 function goSongSheet(id: Number) {
   musicRcmdList(id).then(res => {
     useMusic().musicUrl = res.data.playlist.tracks
+    useMusic().musicImg.splice(0,useMusic().musicImg.length)
+    res.data.playlist.tracks.map(res => {
+      useMusic().musicImg.push(res.al.picUrl)
+    })
   })
 }
 </script>
