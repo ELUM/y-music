@@ -16,11 +16,14 @@
                       fill="white" p-id="2029"></path>
                 </svg>
               </div>
-              <img style="cursor: pointer;" :src="item.picUrl">
+              <router-link :to="'/geDan?id='+item.id">
+                <img :src="item.picUrl">
+              </router-link>
             </div>
             <div style="position: absolute;height: 50px">
               <p>
-                <a style="cursor: pointer">{{ item.name }}</a><br>
+                <router-link :to="'/geDan?id='+item.id" style="cursor: pointer">{{ item.name }}</router-link>
+                <br>
                 <span>热门推荐</span>
               </p>
             </div>
@@ -35,7 +38,7 @@
 <script setup lang="ts">
 import {Recommend} from "@/apis/homeApi";
 import {onMounted, reactive, ref} from "vue";
-import {musicRcmdList} from "@/apis/musicApi";
+import {getMusicMsg, musicRcmdList, musicRcmdListAll} from "@/apis/musicApi";
 import {useMusic} from "@/store";
 
 let recommends = reactive({
@@ -46,14 +49,29 @@ onMounted(() => {
     recommends.data = res.data.result
   })
 })
+
 function goSongSheet(id: Number) {
   musicRcmdList(id).then(res => {
-    useMusic().musicUrl = res.data.playlist.tracks
-    useMusic().musicImg.splice(0,useMusic().musicImg.length)
+    // musicRcmdListAll(id,res.data.playlist.trackCount).then(res => {
+    //   console.log(res.data)
+    // })
+    // useMusic().musicUrl = res.data.playlist.trackIds
+    // useMusic().musicImg.splice(0, useMusic().musicImg.length)
     res.data.playlist.tracks.map(res => {
       useMusic().musicImg.push(res.al.picUrl)
     })
+    useMusic().musicData = res.data.playlist.trackIds
+    // let ids = ""
+    // useMusic().musicData.map(({id}) => {
+    //   ids = ids + id + ','
+    // })
+    // ids = ids.substring(0, ids.length - 1)
+    // getMusicMsg(ids).then(res => {
+    //   console.log(res)
+    // })
+
   })
+
 }
 </script>
 
@@ -119,6 +137,16 @@ function goSongSheet(id: Number) {
               cursor: default;
               opacity: 1;
             }
+
+            router-link {
+              img {
+                cursor: pointer;
+              }
+            }
+          }
+
+          .icon-side:hover .icon {
+
           }
 
           img {

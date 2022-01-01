@@ -9,7 +9,7 @@
           <li>
             <div>
               <div class="icon-side">
-                <div class="icon" @click="goArtistPage(item.id)">
+                <div class="icon" @click="playArtistsTopMusic(item.id)">
                   <svg t="1640665306444" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
                        p-id="2028" width="20" height="20">
                     <path
@@ -34,6 +34,8 @@
 import {onMounted, reactive} from "vue";
 import {topArtists} from "@/apis/homeApi";
 import router from "@/router";
+import {getArtistsTopMusic} from "@/apis/musicApi";
+import {useMusic} from "@/store";
 
 let artists = reactive({
   data: null
@@ -47,6 +49,12 @@ onMounted(() => {
 
 function goArtistPage(id: Number) {
   router.push(`${id}`)
+}
+
+function playArtistsTopMusic(id: Number) {
+  getArtistsTopMusic(id).then(res => {
+    useMusic().musicData = res.data.songs
+  })
 }
 </script>
 

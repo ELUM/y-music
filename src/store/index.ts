@@ -4,8 +4,8 @@ export const useMusic = defineStore({
     id: 'music',
     state: () => {
         return {
-            musicUrl: [],
-            musicImg: []
+            musicImg: [],
+            musicData: [],
         }
     },
     getters: {}
